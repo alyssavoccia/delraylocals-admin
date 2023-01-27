@@ -1,9 +1,14 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import DiningModal from "../components/DiningModal";
 import DelrayLocalsContext from "../context/DelrayLocalsContext";
 
 const Dashboard = () => {
-  const { dispatch } = useContext(DelrayLocalsContext);
+  const { restaurants, dispatch } = useContext(DelrayLocalsContext);
+  const [currRestaurants, setCurrRestaurants] = useState([]);
+
+  useEffect(() => {
+    setCurrRestaurants(restaurants);
+  }, [restaurants]);
 
   return (
     <section className="pl-[80px]">
@@ -11,7 +16,7 @@ const Dashboard = () => {
       <div className="py-4 flex gap-5">
         <div className="flex flex-col items-center justify-center bg-white p-3 rounded shadow-md w-[125px]">
           <p className="font-bold text-lg">Dining</p>
-          <p>10</p>
+          <p>{currRestaurants.length}</p>
         </div>
         <div className="flex flex-col items-center justify-center bg-white p-3 rounded shadow-md w-[125px]">
           <p className="font-bold text-lg">Events</p>

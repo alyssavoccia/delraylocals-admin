@@ -26,8 +26,9 @@ const customStyles = {
 Modal.setAppElement('#root');
 
 const DiningModal = () => {
-  const { diningModalOpen, dispatch } = useContext(DelrayLocalsContext);
+  const { diningModalOpen, restaurants, dispatch } = useContext(DelrayLocalsContext);
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [currRestaurants, setCurrRestaurants] = useState([]);
   const [formData, setFormData] = useState({
     name: '',
     address: '',
@@ -36,6 +37,10 @@ const DiningModal = () => {
   });
 
   const { name, address, website, type } = formData;
+
+  useEffect(() => {
+    setCurrRestaurants(restaurants);
+  }, [restaurants]);
 
   useEffect(() => {
     setModalIsOpen(diningModalOpen);
@@ -50,6 +55,10 @@ const DiningModal = () => {
 
     try {
       await addDoc(collection(db, 'restaurants'), formData);
+
+      currRestaurants.push(formData);
+
+      dispatch({ type: 'UPDATE_RESTAURANTS', payload: currRestaurants });
 
       setFormData({
         name: '',

@@ -5,6 +5,11 @@ const delrayLocalsReducer = (state, action) => {
         ...state,
         restaurants: action.payload
       }
+    case 'UPDATE_RESTAURANTS':
+      return {
+        ...state,
+        restaurants: action.payload
+      }
     case 'OPEN_DINING_MODAL':
       return {
         ...state,

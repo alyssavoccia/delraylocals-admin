@@ -6,6 +6,9 @@ const DelrayLocalsContext = createContext();
 export const DelrayLocalsProvider = ({ children }) => {
   const initialState = {
     restaurants: [],
+    events: [],
+    living: [],
+    community: [],
     diningModalOpen: false
   };
 

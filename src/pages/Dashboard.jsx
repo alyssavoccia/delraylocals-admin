@@ -3,12 +3,18 @@ import DiningModal from "../components/DiningModal";
 import DelrayLocalsContext from "../context/DelrayLocalsContext";
 
 const Dashboard = () => {
-  const { restaurants, dispatch } = useContext(DelrayLocalsContext);
+  const { restaurants, events, living, community, dispatch } = useContext(DelrayLocalsContext);
   const [currRestaurants, setCurrRestaurants] = useState([]);
+  const [currEvents, setCurrEvents] = useState([]);
+  const [currLiving, setCurrLiving] = useState([]);
+  const [currCommunity, setCurrCommunity] = useState([]);
 
   useEffect(() => {
     setCurrRestaurants(restaurants);
-  }, [restaurants]);
+    setCurrEvents(events);
+    setCurrLiving(living);
+    setCurrCommunity(community);
+  }, [restaurants, events, living, community]);
 
   return (
     <section className="pl-[80px]">
@@ -20,15 +26,15 @@ const Dashboard = () => {
         </div>
         <div className="flex flex-col items-center justify-center bg-white p-3 rounded shadow-md w-[125px]">
           <p className="font-bold text-lg">Events</p>
-          <p>5</p>
+          <p>{currEvents.length}</p>
         </div>
         <div className="flex flex-col items-center justify-center bg-white p-3 rounded shadow-md w-[125px]">
           <p className="font-bold text-lg">Living</p>
-          <p>10</p>
+          <p>{currLiving.length}</p>
         </div>
         <div className="flex flex-col items-center justify-center bg-white p-3 rounded shadow-md w-[125px]">
           <p className="font-bold text-lg">Community</p>
-          <p>7</p>
+          <p>{currCommunity.length}</p>
         </div>
       </div>
       <div className="mt-5">

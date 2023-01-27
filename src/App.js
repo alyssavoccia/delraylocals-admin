@@ -10,6 +10,9 @@ import Admin from "./pages/Admin";
 import Navbar from "./components/Navbar";
 import Dashboard from "./pages/Dashboard";
 import Restaurants from "./pages/Restaurants";
+import Events from "./pages/Events";
+import Living from "./pages/Living";
+import Community from "./pages/Community";
 
 function App() {
   const { dispatch } = useContext(DelrayLocalsContext);
@@ -41,6 +44,15 @@ function App() {
         </Route>
         <Route path='/restaurants' element={<PrivateRoute />}>
           <Route path='/restaurants' element={<Restaurants />} />
+        </Route>
+        <Route path='/events' element={<PrivateRoute />}>
+          <Route path='/events' element={<Events />} />
+        </Route>
+        <Route path='/living' element={<PrivateRoute />}>
+          <Route path='/living' element={<Living />} />
+        </Route>
+        <Route path='/community' element={<PrivateRoute />}>
+          <Route path='/community' element={<Community />} />
         </Route>
       </Routes>
       <ToastContainer />

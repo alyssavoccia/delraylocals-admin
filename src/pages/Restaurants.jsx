@@ -41,6 +41,7 @@ const Restaurants = () => {
               <p className="font-bold">{restaurant.name}</p>
               <p>{restaurant.address}</p>
               <p>{restaurant.website}</p>
+              <p>{restaurant.phone}</p>
               <p>{restaurant.type}</p>
             </div>
             <button onClick={onDelete}>

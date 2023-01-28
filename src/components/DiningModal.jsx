@@ -33,10 +33,11 @@ const DiningModal = () => {
     name: '',
     address: '',
     website: '',
+    phone: '',
     type: ''
   });
 
-  const { name, address, website, type } = formData;
+  const { name, address, website, phone, type } = formData;
 
   useEffect(() => {
     setCurrRestaurants(restaurants);
@@ -64,6 +65,7 @@ const DiningModal = () => {
         name: '',
         address: '',
         website: '',
+        phone: '',
         type: ''
       });
 
@@ -97,6 +99,7 @@ const DiningModal = () => {
         <form className='flex flex-col gap-2 mt-5' onSubmit={onSubmit}>
           <input id='name' className='bg-gray-100 rounded p-1' type="text" placeholder='Enter Name' value={name} onChange={onChange} />
           <input id='address' className='bg-gray-100 rounded p-1' type="text" placeholder='Enter Address' value={address} onChange={onChange} />
+          <input id='phone' className='bg-gray-100 rounded p-1' type="text" placeholder='Enter Phone' value={phone} onChange={onChange} />
           <input id='website' className='bg-gray-100 rounded p-1' type="text" placeholder='Enter Website' value={website} onChange={onChange} />
           <select id='type' className='bg-gray-100 rounded p-1' value={type} onChange={onChange}>
             <option defaultValue>Type</option>

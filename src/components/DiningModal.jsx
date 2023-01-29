@@ -54,24 +54,28 @@ const DiningModal = () => {
   const onSubmit = async e => {
     e.preventDefault();
 
-    try {
-      await addDoc(collection(db, 'restaurants'), formData);
-
-      currRestaurants.push(formData);
-
-      dispatch({ type: 'UPDATE_RESTAURANTS', payload: currRestaurants });
-
-      setFormData({
-        name: '',
-        address: '',
-        website: '',
-        phone: '',
-        type: ''
-      });
-
-      toast.success('Restaurant successfully added!');
-    } catch (error) {
-      toast.error('Unable to add restaurant.');
+    if (restaurants.filter(restaurant => restaurant.name = formData.name)) {
+      toast.error('Restaurant already in the database.');
+    } else {
+      try {
+        await addDoc(collection(db, 'restaurants'), formData);
+  
+        currRestaurants.push(formData);
+  
+        dispatch({ type: 'UPDATE_RESTAURANTS', payload: currRestaurants });
+  
+        setFormData({
+          name: '',
+          address: '',
+          website: '',
+          phone: '',
+          type: ''
+        });
+  
+        toast.success('Restaurant successfully added!');
+      } catch (error) {
+        toast.error('Unable to add restaurant.');
+      }
     }
   }
 

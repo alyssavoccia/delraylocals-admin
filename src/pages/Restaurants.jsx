@@ -23,7 +23,7 @@ const Restaurants = () => {
   }
 
   const onDelete = e => {
-    const restaurantName = e.target.parentNode.parentNode.parentNode.id;
+    const restaurantName = e.target.parentNode.parentNode.parentNode.parentNode.id;
     db.collection("restaurants").where("name", "==", restaurantName).get()
       .then(querySnapshot => {
         querySnapshot.docs[0].ref.delete();
@@ -86,7 +86,7 @@ const Restaurants = () => {
                         <tbody>
                           {
                             currRestaurants.map(restaurant => (
-                              <tr key={restaurant.name}>
+                              <tr key={restaurant.name} id={restaurant.name}>
                                 <td className="px-5 py-5 text-sm bg-white border-b border-gray-200">
                                   <p className="whitespace-no-wrap">{restaurant.name}</p>
                                 </td>

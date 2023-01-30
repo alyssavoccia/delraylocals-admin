@@ -54,9 +54,13 @@ const DiningModal = () => {
   const onSubmit = async e => {
     e.preventDefault();
 
-    // if (restaurants.filter(restaurant => restaurant.name === formData.name)) {
-    //   toast.error('Restaurant already in the database.');
-    // } else {
+    const inDatabase = restaurants.filter(restaurant => restaurant.name === formData.name);
+
+    console.log(inDatabase);
+
+    if (inDatabase.length > 0) {
+      toast.error('Restaurant already in the database.');
+    } else {
       try {
         await addDoc(collection(db, 'restaurants'), formData);
   
@@ -76,7 +80,7 @@ const DiningModal = () => {
       } catch (error) {
         toast.error('Unable to add restaurant.');
       }
-    // }
+    }
   }
 
   const onChange = e => {

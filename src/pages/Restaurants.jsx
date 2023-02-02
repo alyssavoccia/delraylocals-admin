@@ -41,24 +41,6 @@ const Restaurants = () => {
         <button onClick={() => dispatch({ type: 'OPEN_DINING_MODAL' })} className="bg-slate-500 hover:bg-slate-600 transition-all text-white font-semibold p-2 rounded flex justify-center w-[150px]">Add Restaurant</button>
         <DiningModal />
       </div>
-      {/* <div className="mt-5 grid grid-cols-1 md:grid-cols-2 gap-4">
-        {currRestaurants.map(restaurant => (
-          <div key={restaurant.name} className="flex justify-between items-center" id={restaurant.name}>
-            <div>
-              <p className="font-bold">{restaurant.name}</p>
-              <p>{restaurant.address}</p>
-              <p>{restaurant.website}</p>
-              <p>{restaurant.phone}</p>
-              <p>{restaurant.type}</p>
-            </div>
-            <button onClick={onDelete}>
-              <FontAwesomeIcon className="hover:text-red-500 cursor-pointer" icon={faTrash} />
-            </button>
-          </div>
-        ))}
-      </div> */}
-
-
       <div className="container">
         <div className="py-5">
           <div className="mb-1 sm:mb-0">
@@ -143,7 +125,7 @@ const Restaurants = () => {
                 </div>
             </div>
         </div>
-    </div>
+      </div>
     </section>
   )
 }

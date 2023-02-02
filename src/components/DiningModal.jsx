@@ -121,6 +121,9 @@ const DiningModal = () => {
             <option value='Seafood'>Seafood</option>
             <option value='Thai'>Thai</option>
             <option value='Brewery'>Brewery</option>
+            <option value='Brewery'>Pub/Bar</option>
+            <option value='Brewery'>Sandwich</option>
+            <option value='Brewery'>Breakfast</option>
           </select>
           <button type='submit' className='bg-slate-500 hover:bg-slate-400 transition-all text-white rounded font-bold p-1'>Submit</button>
         </form>

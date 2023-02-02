@@ -118,6 +118,7 @@ const DiningModal = () => {
             <option value='Japanese'>Japanese</option>
             <option value='Bistro'>Bistro</option>
             <option value='Cuban'>Cuban</option>
+            <option value='Cuban'>Spanish/Latin</option>
             <option value='Seafood'>Seafood</option>
             <option value='Thai'>Thai</option>
             <option value='Brewery'>Brewery</option>

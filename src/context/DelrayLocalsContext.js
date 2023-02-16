@@ -8,8 +8,9 @@ export const DelrayLocalsProvider = ({ children }) => {
     restaurants: [],
     events: [],
     living: [],
-    community: [],
-    diningModalOpen: false
+    organizations: [],
+    diningModalOpen: false,
+    getInvolvedModalOpen: false
   };
 
   const [state, dispatch] = useReducer(delrayLocalsReducer, initialState);

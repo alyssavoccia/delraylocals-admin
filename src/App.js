@@ -11,8 +11,8 @@ import Navbar from "./components/Navbar";
 import Dashboard from "./pages/Dashboard";
 import Restaurants from "./pages/Restaurants";
 import Events from "./pages/Events";
-import Living from "./pages/Living";
-import Community from "./pages/Community";
+import ThingsToDo from "./pages/ThingsToDo";
+import Community from "./pages/Organizations";
 
 function App() {
   const { dispatch } = useContext(DelrayLocalsContext);
@@ -32,6 +32,34 @@ function App() {
     }
 
     fetchRestaurants();
+
+    const fetchThingsToDo = async () => {
+      const thingsToDoRef = collection(db, 'thingsToDo');
+      const querySnap = await getDocs(thingsToDoRef);
+      const things = [];
+
+      querySnap.forEach(doc => {
+        things.push(doc.data());
+      });
+
+      dispatch({ type: 'SET_THINGS_TO_DO', payload: things });
+    }
+
+    fetchThingsToDo();
+
+    const fetchOrganizations = async () => {
+      const organizationsRef = collection(db, 'organizations');
+      const querySnap = await getDocs(organizationsRef);
+      const organizations = [];
+
+      querySnap.forEach(doc => {
+        organizations.push(doc.data());
+      });
+
+      dispatch({ type: 'SET_ORGANIZATIONS', payload: organizations });
+    }
+
+    fetchOrganizations();
   }, [dispatch]);
 
   return (
@@ -48,11 +76,11 @@ function App() {
         <Route path='/events' element={<PrivateRoute />}>
           <Route path='/events' element={<Events />} />
         </Route>
-        <Route path='/living' element={<PrivateRoute />}>
-          <Route path='/living' element={<Living />} />
+        <Route path='/things-to-do' element={<PrivateRoute />}>
+          <Route path='/things-to-do' element={<ThingsToDo />} />
         </Route>
-        <Route path='/community' element={<PrivateRoute />}>
-          <Route path='/community' element={<Community />} />
+        <Route path='/organizations' element={<PrivateRoute />}>
+          <Route path='/organizations' element={<Community />} />
         </Route>
       </Routes>
       <ToastContainer />

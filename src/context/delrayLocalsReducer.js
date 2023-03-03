@@ -10,6 +10,21 @@ const delrayLocalsReducer = (state, action) => {
         ...state,
         restaurants: action.payload
       }
+    case 'SET_THINGS_TO_DO':
+      return {
+        ...state,
+        things: action.payload
+      }
+    case 'UPDATE_THINGS_TO_DO':
+      return {
+        ...state,
+        things: action.payload
+      }
+    case 'SET_ORGANIZATIONS':
+      return {
+        ...state,
+        organizations: action.payload
+      }
     case 'UPDATE_ORGANIZATIONS':
       return {
         ...state,
@@ -24,6 +39,16 @@ const delrayLocalsReducer = (state, action) => {
       return {
         ...state,
         diningModalOpen: false
+      }
+    case 'OPEN_THINGS_MODAL':
+      return {
+        ...state,
+        thingsModalOpen: true
+      }
+    case 'CLOSE_THINGS_MODAL':
+      return {
+        ...state,
+        thingsModalOpen: false
       }
     case 'OPEN_ORGANIZATIONS_MODAL':
       return {

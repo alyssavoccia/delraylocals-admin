@@ -7,9 +7,10 @@ export const DelrayLocalsProvider = ({ children }) => {
   const initialState = {
     restaurants: [],
     events: [],
-    living: [],
+    things: [],
     organizations: [],
     diningModalOpen: false,
+    thingsModalOpen: false,
     getInvolvedModalOpen: false
   };
 

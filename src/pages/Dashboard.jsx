@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import DiningModal from "../components/DiningModal";
+import EventsModal from "../components/EventsModal";
 import ThingsModal from "../components/ThingsModal";
 import GetInvolvedModal from "../components/GetInvolvedModal";
 import DelrayLocalsContext from "../context/DelrayLocalsContext";
@@ -44,7 +45,8 @@ const Dashboard = () => {
         <div className="flex flex-wrap gap-5 mt-4">
           <button onClick={() => dispatch({ type: 'OPEN_DINING_MODAL' })} className="bg-slate-500 hover:bg-slate-400 transition-all text-white font-semibold p-2 rounded flex justify-center w-[150px]">Add Restaurant</button>
           <DiningModal />
-          <p className="bg-slate-500 hover:bg-slate-400 transition-all text-white font-semibold cursor-pointer p-2 rounded flex justify-center w-[150px]">Add Event</p>
+          <button onClick={() => dispatch({ type: 'OPEN_EVENTS_MODAL' })} className="bg-slate-500 hover:bg-slate-400 transition-all text-white font-semibold cursor-pointer p-2 rounded flex justify-center w-[150px]">Add Event</button>
+          <EventsModal />
           <button onClick={() => dispatch({ type: 'OPEN_THINGS_MODAL' })} className="bg-slate-500 hover:bg-slate-400 transition-all text-white font-semibold cursor-pointer p-2 rounded flex justify-center w-[150px]">Add Thing to Do</button>
           <ThingsModal />
           <button onClick={() => dispatch({ type: 'OPEN_ORGANIZATIONS_MODAL' })} className="bg-slate-500 hover:bg-slate-400 transition-all text-white font-semibold cursor-pointer p-2 rounded flex justify-center w-[150px]">Add Organization</button>

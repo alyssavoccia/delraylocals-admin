@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPencil, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { db } from "../firebase.config";
 import DelrayLocalsContext from "../context/DelrayLocalsContext";
-import ThingsModal from "../components/DiningModal";
+import ThingsModal from "../components/ThingsModal";
 
 const ThingsToDo = () => {
   const { things, dispatch } = useContext(DelrayLocalsContext);

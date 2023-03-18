@@ -10,6 +10,7 @@ export const DelrayLocalsProvider = ({ children }) => {
     things: [],
     organizations: [],
     diningModalOpen: false,
+    eventsModalOpen: false,
     thingsModalOpen: false,
     getInvolvedModalOpen: false
   };

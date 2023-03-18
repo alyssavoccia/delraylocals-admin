@@ -10,7 +10,7 @@ import Admin from "./pages/Admin";
 import Navbar from "./components/Navbar";
 import Dashboard from "./pages/Dashboard";
 import Restaurants from "./pages/Restaurants";
-import Events from "./pages/Events";
+import Events from './pages/Events';
 import ThingsToDo from "./pages/ThingsToDo";
 import Community from "./pages/Organizations";
 
@@ -32,6 +32,20 @@ function App() {
     }
 
     fetchRestaurants();
+
+    const fetchEvents = async () => {
+      const eventsRef = collection(db, 'events');
+      const querySnap = await getDocs(eventsRef);
+      const events = [];
+
+      querySnap.forEach(doc => {
+        events.push(doc.data());
+      });
+
+      dispatch({ type: 'SET_EVENTS', payload: events });
+    }
+
+    fetchEvents();
 
     const fetchThingsToDo = async () => {
       const thingsToDoRef = collection(db, 'thingsToDo');
